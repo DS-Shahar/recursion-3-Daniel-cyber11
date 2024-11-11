@@ -1,0 +1,233 @@
+	    private static int sum(int n) {
+	    	if(n==0) {
+	    		return 0;
+	    	}
+	    	if(n<10) {
+				return n;}
+			else {
+				return sum(n/10)+n%10;
+	}	    }
+	    
+	    
+	    
+//סדרה חשבונית המוגדרת על ידי הפרש המספר השני והמספר שלפניו
+//2,5,8,11,15
+	    
+	    private static int sidra(int a1, int d, int n) {
+	    	if(a1>n) {
+	    		return 0;
+	    	}
+	    	if(fact9(a1,a1-1)==true) {
+				return sidra(a1+1,d,n)+1;
+
+	    	}
+	    	
+			return sidra(a1+1,d,n);
+
+	    }
+	    
+	    private static boolean findDigit(int num, int digit) {
+	    	if(num==0) {
+	    			return false;
+	    	}
+	     if (num% 10 == digit) {
+            return true;
+        }
+			return findDigit(num/10,digit);
+	    }
+	    
+	    
+	    
+	    private static boolean match(int[] a, int[] b,int idx) {
+	    	if(idx==a.length) {
+	    		return true;
+	    	}
+	    	if(false==findDigit(a[idx],b[idx])) {
+	    		return false;
+	    	}
+			return match(a,b,idx+1);
+
+	    	
+	    }
+	    
+	    
+	    //עמוד 26 ביטייין חשבונים
+	//10
+	    public static int bituy(int n) {
+	    	if(n==1) {
+	    		return 2;
+	    	}
+	    	int x=n;
+	    	if(n%2==0) {
+	    		x=n*n;
+	    	}
+	    	else {
+	    		x=n*2;
+	    	}
+	    	return bituy(n-1)+x;
+	    }
+
+//11
+	    public static int sum(int n, double a) {
+	    	if(n==0) {
+	    		return a;
+	    	}
+	    	if(n%2==0) {
+	    		a-=Math.sqrt(2*n-1);
+	    	}
+	    	else {
+	    		a+=1+2*(n-1);
+	    	}
+	    	return sum(n-1,a);
+	    }
+	    
+	    //12
+	    public static int sumx(int n1, int n2) {
+	    	if(n1<=n2) {
+	    		return 0;
+	    	}
+	    	
+	    	
+	        // הכפולה הגבוהה ביותר של num1 שעדיין קטנה מ-num2
+	        int largestMultiple = (n2 - 1) / n1 * n1;
+	        
+	        // החזרת הכפולה האחרונה יחד עם הקריאה הרקורסיבית שמחשבת את השאר
+	        return largestMultiple + sumx(n1, largestMultiple);
+	    }
+	    	
+	   
+	    
+	    //21
+	    
+	    public static int abc(String str ,int size) {
+	    	if(size==-1) {
+	    		return 0;
+	    	}
+	    	if(str.charAt(size)>='a'&&str.charAt(size)<='z') {
+	    		return abc(str,size-1)+1;
+	    	}
+    		return abc(str,size-1);
+
+	    }
+	    
+	    //22
+	    public static String newStr(String str ) {
+	    	if(str.length()<3) {
+	    		return str;
+	    	}
+	    	return str.substring(0,3)+"*"+newStr(str.substring(3));
+	    }
+	    
+	    //23
+	    public static String oppisite(String str ) {
+	    	if(str.length()<1) {
+	    		return str;
+	    	}
+	    	return str.charAt(str.length()-1)+"*"+newStr(str.substring(0,str.length()-1));
+	    }
+	    
+	     //עמוד 28
+	    public static void printLettersInRange(char start, char end) {
+	        if (start > end) {
+	            return;
+	        }
+	        System.out.print(start + " ");
+	        printLettersInRange((char)(start+1),end);
+	    }
+	    
+	    
+	    public static void printDivisors(int n, int divisor) {
+	        if (divisor > n) {
+	            return;
+	        }
+	        if (n % divisor == 0) {
+	            System.out.print(divisor + " ");
+	        }
+	        printDivisors(n, divisor + 1);
+	    }
+
+	    
+	    
+	    public static void printDescending(int n) {
+	        if (n < 1) {
+	            return;
+	        }
+	        System.out.print(n + " ");
+	        printDescending(n-1);
+	    }
+	    
+	    
+	    
+	    public static void printWithStep(int a, int b) {
+	        if (a > b) {
+	            return;
+	        }
+	        System.out.print(a + " ");
+	        printWithStep(a+2,b);
+	    }
+	    
+	    
+	    
+	    
+	    public static void printEvenNumbers(int[] arr, int index) {
+	        if (index >= arr.length) {
+	            return;
+	        }
+	        if (arr[index] % 2 == 0) {
+	            System.out.print(arr[index] + " ");
+	        }
+	        printEvenNumbers(arr, index + 1);
+	    }
+
+ 
+	    public static void printPrimes(int n) {
+	        for (int i = 2; i <= n; i++) {
+	            if (isPrime(i, 2)) {
+	                System.out.print(i + " ");
+	            }
+	        }
+	    }
+
+	    public static boolean isPrime(int num, int divisor) {
+	        if (num <= 2) {
+	        	return (num == 2);}
+	        if (num % divisor == 0) {
+	        	return false;}
+	        if (divisor * divisor > num) {
+	        	return true;
+	    }
+	        return isPrime(num,divisor+1);
+	    }
+	    
+	    
+	    
+	    
+	    public static void printFibonacci(int a, int b, int n) {
+	        if (a > n) {
+	            return;
+	        }
+	        System.out.print(a + " ");
+	        printFibonacci(b, a + b, n);
+	    }
+
+	  
+	    public static void printEven(int n) {
+	        if (n < 0) {
+	            return;
+	        }
+	        printEven(n - 2);
+	        if (n % 2 == 0) {
+	            System.out.print(n+" ");
+	        }
+	    }
+	    
+	    
+	    
+	    public static int sumUpTo(int n) {
+	        if (n <= 1) {
+	            return n;
+	        }
+	        return n + sumUpTo(n-1);
+	    }
+	    
+	
